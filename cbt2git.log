@@ -1,0 +1,9 @@
+2023-08-06 08:50:43.044748 - Initialized conversion of CBT980
+2023-08-06 08:50:43.088431 - Received CBT.V505.FILE980.PDS from FILE980.XMI 
+2023-08-06 08:50:43.090743 - Found $$$#DATE.txt (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/$$$#DATE
+2023-08-06 08:50:43.091816 - Found $$NOTE01.txt (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/$$NOTE01
+2023-08-06 08:50:43.092849 - Found $$NOTE02.txt (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/$$NOTE02
+2023-08-06 08:50:43.093820 - Found @FILE980.txt (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/@FILE980
+2023-08-06 08:50:43.094769 - Found ZAPTASCL.jcl (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/ZAPTASCL
+2023-08-06 08:50:43.095820 - Found ZAPTASID.jcl (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/ZAPTASID
+2023-08-06 08:50:43.096720 - Found ZAPTAS24.jcl (text/plain) in CBT.V505.FILE980.PDS, moved to PDS/ZAPTAS24

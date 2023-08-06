@@ -1,0 +1,72 @@
+Subject:  TASID zap from CBT File 980
+From:     Updater
+Date:     12/24/2020, 11:54 AM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+Hi Sam,
+
+I saw your post on IBM-MAIN about the TASID zap.
+
+I worked out a fix on the 2.4 system in my TASIDX.LOAD library.
+
+I just copied TASID from SYS1.CBT.LINKLIB to TASIDX.LOAD and
+zapped the copy.
+
+Apparently is has another zap applied besides the one in File
+980, related to panels, so I couldn't use an unmodified TASID
+without knowing what that other zap is.
+
+The simplest fix is to change just this one line:
+
+REP 8A A74801B8
+
+to this:
+
+REP 8A A74801D8
+
+It should then work on V2R4 but not on V2R2 or V2R3
+
+The 01D8 is the offset of CCTPIT into the HCCT DSECT in
+SYS1.SHASMAC($HCCT) and apparently it sometimes changes from
+release to release.
+
+The VER statement in file 980:
+  VER 82 911024F5
+is this instruction:
+  TM CVTOSLV5,CVTZOS_V1R9
+which tests for v1r9 or higher
+
+The REP statement in File 980 replaces it with this:
+  REP 82 914024F6
+which is this instruction:
+  TM CVTOSLV6,CVTZOS_V2R2
+which tests for v2r2 or higher
+
+This could be changed to this:
+  REP 82 910824F6
+which is this instruction:
+  TM CVTOSLV6,CVTZOS_V2R4
+which tests for v2r4 or higher
+
+but it's not necessary unless you want it to work on v2r2 and
+v2r3 systems too as well as v2r4.
+
+In that case I think you would also have to change this
+  REP 92 A74801B0
+to this:
+  REP 92 A74801B8
+
+but I can't test it because I only have the v2r4 system to test
+with.  That 01B0 and 01B8 are the CCTPIT-HCCT offset to be used
+if the TM is not true.  (Now tested on 2.2 and 2.3 and it works.)
+
+The logic in the file 980 is "use offset 01b8 if true (v2r2),
+else use offset 01b0.
+
+That could be changed to "use offset 01D8 if true (v2r4) else use
+01b8 (v2r2 v2r3).
+
+Best wishes.
+Updater
+
+
