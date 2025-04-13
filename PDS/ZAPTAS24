@@ -1,0 +1,25 @@
+//SBGOLOBA  JOB (ACCT#),S-GOLOB,
+// NOTIFY=&SYSUID,
+// CLASS=B,MSGCLASS=X
+//ZAPAPF  EXEC PGM=AMASPZAP
+//SYSPRINT   DD SYSOUT=*
+//SYSLIB     DD DSN=SYS1.W$$.LINKLIB,DISP=SHR
+//*  - - - - - - - - - - - - - - - - - - - - - - - - - - -  *//
+//*                                                         *//
+//*  ZAP TO TASID 5.21 TO FIX THE INITIATOR PROBLEM FOR     *//
+//*             Z/OS 2.4, AND ALSO 2.2 AND 2.3              *//
+//*                                                         *//
+//*  TO BE APPLIED ON TOP OF THE ZAP IN THE ZAPTASID MEMBER *//
+//*                                                         *//
+//*     COURTESY OF UPDATER - SEE MEMBER $$NOTE01           *//
+//*                                                         *//
+//*  - - - - - - - - - - - - - - - - - - - - - - - - - - -  *//
+//SYSIN DD *
+NAME  TASID TASIDPIT
+ VER 82 914024F6         TEST FOR Z/OS 2.2
+ REP 82 910824F6         TEST FOR Z/OS 2.4
+ REP 8A A74801D8         NEW DISPLACEMENT OF $HCCT
+ REP 92 A74801B8         FOR 2.2 AND 2.3
+ IDRDATA TASIDZ24
+/*
+//

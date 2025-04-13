@@ -1,0 +1,27 @@
+Subject:  TASID zap for job class for running jobs.
+From:     Updater
+Date:     12/27/2020, 2:45 PM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+Hi Sam,
+
+I have another zap to TASID. When there are active jobs, the
+initiator display does not show the job class for active jobs in
+the far right column.
+
+After the zap, the first character of the 8-character job class
+will be shown. I think 8-character job classes were introduced
+with v2r1.
+
+The control block it gets the class from is in SYS1.SHASMAC($SJB)
+and the 8-byte class is in the label SJBJOBCL. The class used to
+be in a 1-byte area following SJBSTACA, which is now an unnamed
+1-byte area.
+
+  NAME   TASID TASIDINT
+  VER 0374 D200,A192,2118
+  REP 0374 D200,A192,2150
+
+Best wishes.
+Updater
+

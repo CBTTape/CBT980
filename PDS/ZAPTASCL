@@ -1,0 +1,24 @@
+//SBGOLOBA  JOB (ACCT#),S-GOLOB,
+// NOTIFY=&SYSUID,
+// CLASS=B,MSGCLASS=X
+//ZAPAPF  EXEC PGM=AMASPZAP
+//SYSPRINT   DD SYSOUT=*
+//SYSLIB     DD DSN=SYS1.W$$.LINKLIB,DISP=SHR
+//*  - - - - - - - - - - - - - - - - - - - - - - - - - - -  *//
+//*                                                         *//
+//*  ZAP TO TASID 5.21 TO SHOW THE CLASS NAME IN THE        *//
+//*               INITIATOR DISPLAY.                        *//
+//*                                                         *//
+//*  CLASS NAMES CAN BE 8-CHARACTERS NOW, BUT TASIS ONLY    *//
+//*      SHOWS THE FIRST CHARACTER OF THE CLASS NAME.       *//
+//*                                                         *//
+//*     COURTESY OF UPDATER - SEE MEMBER $$NOTE02           *//
+//*                                                         *//
+//*  - - - - - - - - - - - - - - - - - - - - - - - - - - -  *//
+//SYSIN DD *
+NAME  TASID TASIDINT
+ VER 0374 D200,A192,2118
+ REP 0374 D200,A192,2150
+ IDRDATA TASIDZCL
+/*
+//
